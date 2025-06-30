@@ -71,7 +71,8 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Video virtual try-on technology has attracted significant attention for its potential to revolutionize online retail by enabling highly realistic visualization of apparel within video content. Owing to the scarcity of diverse videos paired with pack shots and better-matched reference features, most existing approaches frequently struggle to maintain temporal consistency and s in the wild. To address these limitations, and inspired by the divide-and-conquer paradigm, we propose a novel video virtual try-on framework, named Try-On Master, which leverages the greater availability of outfit images paired with pack shots and diverse human videos. It consists of two core modules. The first module is an image-based virtual try-on model featuring highly consistent key frames generation mechanism under instruction guidance with a pluggable garment encoder. The second module is a video editing model with a lightweight pose adapter and a parameter-sharing reference encoder, which aggregates visual cues from key frames and textual information.
+            Video virtual try-on (VVT) in real-world environments aims to realistically fit garments onto human subjects in highly demanding scenarios, including unrestricted subject or camera movement, dynamic scenes, and character styles. However, current approaches face two primary challenges: First, these methods heavily rely on paired clothing-video or garment-image data, which are scarce across diverse settings. This scarcity often leads to garment appearance degradation or temporal jitter, especially in intricate situations. Second, a substantial gap exists between the task of fitting spatially misaligned garment images across video frames and the spatiotemporal consistency priors of pretrained video models, making the convergence of these approaches challenging. To overcome these issues, we present 
+            <b>Try-On Master</b>, a stage-wise framework based on Diffusion Transformers (DiTs) that decomposes the VVT task into keyframe image try-on and video generation guided by spatially aligned keyframes, thereby narrowing the gap with pretrained priors. This design also enables training on large-scale unpaired video and image datasets from diverse sources. Specifically, the framework comprises three sequential stages. In the first stage, we propose a <b>keyframe sampling strategy</b> that selects frames exhibiting significant motion changes in complex scenarios, thereby providing comprehensive reference cues for subsequent video generation. In the second stage, we develop a <b>multi-frame try-on model</b> that fits garments to keyframes while accurately preserving garment details and ensuring content consistency. In the third stage, we introduce a <b>multi-modal guided video editing model</b> that synthesizes temporally stable virtual try-on videos using keyframe try-on images, motion features, and textual descriptions as guidance. Extensive experiments demonstrate that Try-On Master surpasses existing methods on both image and video try-on tasks, particularly in preserving high-fidelity garment details and maintaining temporal stability under real-world conditions. Video samples are available on our project homepage: [insert URL here].
           </p>
 
         </div>
@@ -90,23 +91,26 @@
     </div>
 
     <div id="sections" class="column-flex">
-      <h3>Generated Videos</h3>
-        <p>
-          OmniHuman supports various visual and audio styles. It can generate realistic human videos <strong>at any aspect ratio and body proportion (portrait, half-body, full-body all in one)</strong>, with realism stemming from comprehensive aspects including motion, lighting, and texture details.<br/>
-          
-        </p>
+      
+      <h3><h2 class="title is-3">High-fidelity garment detail preservation under complex motion</h2></h3>
         <p class="styled-text">
-          <b>*</b> Note that to generate all results on this page, <strong>only any single image and audio are required</strong>, except for the demo showcasing video and combined driving signals. For the sake of a clean layout, we have omitted the display of reference images, which are the first frame of the generated video in most cases. If you need comparisons or further information, please do not hesitate to contact us.
+          <b>*</b> Try-On Master enables virtual try-on of complete outfits—including tops, bottoms, skirts, shoes, socks, and more. If a user uploads only a top, the model can automatically generate and match appropriate bottoms and footwear to complete the outfit. This capability is not available in previous methods.
+        
+        </p>
+         <p class="styled-text">
+          <b>*</b> Try-On Master is capable of handling complex human motions, including runway walks and 360-degree rotations, with high fidelity in garment detail preservation and robust temporal consistency.
+        
         </p>
         <div class="video-slider">
           <video src="video/main1.mp4"></video>
           <video src="video/main2.mp4"></video>
           <video src="video/main3.mp4"></video>
+          <video src="video/main4.mp4"></video>
         </div>
-        <div class="video-slider">
+        <!-- <div class="video-slider">
           <video src="video/talk2.mp4"></video>
           <video src="video/talk3.mp4"></video>
-        </div>
+        </div> -->
         
         <!-- 
       <h3>Talking</h3>
@@ -118,58 +122,98 @@
         
  -->
 
+      <h3><h2 class="title is-3">High-fidelity garment rendering under challenging camera dynamics</h2></h3>
 
-      <h3>Diversity</h3>
-        <p>In terms of input diversity, OmniHuman supports cartoons, artificial objects, animals, and challenging poses, ensuring motion characteristics match each style's unique features.</p>
+         <p class="styled-text">
+          <b>*</b> Try-On Master can preserve temporal consistency and high-fidelity garment details, even when the input video features challenging camera movements and prominent scene transitions. 
+        </p>
         <div class="video-slider">
           <video src="video/div1.mp4"></video>
           <video src="video/div2.mp4"></video>
-          <video src="video/div3.mp4"></video>
-        </div>
-        <div class="video-slider">
-          <video src="video/div4.mp4"></video>
-          <video src="video/div5.mp4"></video>
-          <video src="video/div6.mp4"></video>
-          <video src="video/div7.mp4"></video>
         </div>
 
 
+      <h3><h2 class="title is-3">Generating plausible physical dynamics during garment interactions</h2></h3>
 
-
-      <h3>More Portrait Cases</h3>
-        <p>Here, we also include a section dedicated to portrait aspect ratio results, which are derived from test samples in the <a href="https://celebv-hq.github.io/">CelebV-HQ</a>datasets.</p>
+         <p class="styled-text">
+          <b>*</b> Try-On Master can generate realistic physical dynamics in scenarios involving garment interactions, for example, inserting hands into pockets or interacting with soft clothing materials.
+        </p>
         <div class="video-slider">
-          <video src="video/head1.mp4"></video>
-          <video src="video/head2.mp4"></video>
-          <video src="video/head3.mp4"></video>
+          <video src="video/gen1.mp4"></video>
+          <video src="video/gen2.mp4"></video>
         </div>
+
+       
+      <h3><h2 class="title is-3">High-fidelity garment detail preservation in challenging scenarios</h2></h3>
+
+         <p class="styled-text">
+          <b>*</b> Try-On Master is capable of enabling virtual try-on in videos featuring subjects within complex static or dynamic environments.
+        </p>
         <div class="video-slider">
-          <video src="video/head4.mp4"></video>
-          <video src="video/head5.mp4"></video>
-          <video src="video/head6.mp4"></video>
+          <video src="video/challenge1.mp4"></video>
+        </div>
+      
+
+      <h3><h2 class="title is-3">Try-on Show Time</h2></h3>
+        <div class="video-slider">
+          <video src="video/show1.mp4"></video>
+          <video src="video/show2.mp4"></video>
+          <video src="video/show3.mp4"></video>
+        </div>
+
+         <div class="video-slider">
+          <video src="video/show4.mp4"></video>
+          <video src="video/show5.mp4"></video>
+          <video src="video/show6.mp4"></video>
+        </div>
+
+         <div class="video-slider">
+          <video src="video/show7.mp4"></video>
+          <video src="video/show8.mp4"></video>
+          <video src="video/show9.mp4"></video>
         </div>
 
       
-      <h3>Singing</h3>
-        <p>OmniHuman can support various music styles and accommodate multiple body poses and singing forms. It can handle high-pitched songs and display different motion styles for different types of music. Please remember to select the highest video quality. The generated video quality also highly depends on the quality of the reference image.
 
-        <div class="iframe-container">
-          <iframe src="https://www.youtube.com/embed/XF5vOR7Bpzs?si=8xdu-gtd9AzUd615" allowfullscreen></iframe>
-          <iframe src="https://www.youtube.com/embed/0cwvT-J7PcQ?si=tfnipoBtxDU0gcNH" allowfullscreen></iframe>
-          <iframe src="https://www.youtube.com/embed/4w2AeGHy31Q?si=DQaeCWRj0V9SRm52" allowfullscreen></iframe>
-          <iframe src="https://www.youtube.com/embed/1NU8NzvAxEg?si=tu3zNPGjUtdL1ag9" allowfullscreen></iframe>
+      <h3><h2 class="title is-3">Outfitting cartoon characters in highly demanding scenarios</h2></h3>
+
+         <p class="styled-text">
+          <b>*</b> Even more interestingly, Try-On Master is capable of outfitting cartoon characters with real-world garments, even in highly demanding scenarios involving unrestricted subject poses or camera movement and dynamic scenes.       
+         </p>
+        <div class="video-slider">
+          <video src="video/cartoon1.mp4"></video>
+          <video src="video/cartoon2.mp4"></video>
+          <video src="video/cartoon3.mp4"></video>
+          <video src="video/cartoon4.mp4"></video>
         </div>
 
+        
 
-        <div class="iframe-container">
-          <iframe src="https://www.youtube.com/embed/ns8kn5NGL44?si=5-uMWr431xZamSlY" allowfullscreen></iframe>
-          <iframe src="https://www.youtube.com/embed/GGTcVOb2S9k?si=tLMOPd_1rOXXeO5x" allowfullscreen></iframe>
-          <iframe src="https://www.youtube.com/embed/CVVNK06LVac?si=VVJTt1nHcKq_xq7n" allowfullscreen></iframe>
-          <iframe src="https://www.youtube.com/embed/XV4E0-TVsvg?si=Q_936m0uHLW86cQk" allowfullscreen></iframe>
+      <section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Ethics Concerns</h2>
+        <div class="content has-text-justified">
+          <p>
+                      The images and audios used in these demos are from public sources or generated by models, and are solely used to demonstrate the capabilities of this research work. If there are any concerns, please contact us (dongxin.1016@bytedance.com) and we will delete it in time.
+         </p>
+
         </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
-      <h3>Compatibility with Video Driving</h3>
+
+
+      
+
+
+
+
+      <!-- <h3>Compatibility with Video Driving</h3>
         <p>Due to OmniHuman's mixed condition training characteristics, it can support not only audio driving but also video driving to mimic specific video actions, as well as combined audio and video driving to control specific body parts like recent methods.
 
 
@@ -177,9 +221,9 @@
       <h3>Ethics Concerns</h3>
         <p>
           The images and audios used in these demos are from public sources or generated by models, and are solely used to demonstrate the capabilities of this research work. If there are any concerns, please contact us (jianwen.alan@gmail.com) and we will delete it in time. The template of this webpage is based on the one from <a href="https://www.microsoft.com/en-us/research/project/vasa-1/">VASA-1</a>,  and some test audios are from <a href="https://www.microsoft.com/en-us/research/project/vasa-1">VASA-1</a>,<a href="https://loopyavatar.github.io">Loopy</a>,<a href="https://cyberhost.github.io/">CyberHost</a>.
-        </p>
+        </p> -->
       
-      <h3>BibTeX</h3>
+      <!-- <h3>BibTeX</h3>
         <p>If you find this project useful for your research, you can cite us and check out our other related works:</p>
         <pre><code>
           @article{lin2025omnihuman1,
@@ -189,20 +233,8 @@
             year={2025}
           }
           
-          @article{jiang2024loopy,
-            title={Loopy: Taming Audio-Driven Portrait Avatar with Long-Term Motion Dependency},
-            author={Jiang, Jianwen and Liang, Chao and Yang, Jiaqi and Lin, Gaojie and Zhong, Tianyun and Zheng, Yanbo},
-            journal={arXiv preprint arXiv:2409.02634},
-            year={2024}
-          }
 
-          @article{lin2024cyberhost,
-            title={CyberHost: Taming Audio-driven Avatar Diffusion Model with Region Codebook Attention},
-            author={Lin, Gaojie and Jiang, Jianwen and Liang, Chao and Zhong, Tianyun and Yang, Jiaqi and Zheng, Yanbo},
-            journal={arXiv preprint arXiv:2409.01876},
-            year={2024}
-          }
-        </code></pre> 
+        </code></pre>  -->
 
       <br/>
       <br/>
