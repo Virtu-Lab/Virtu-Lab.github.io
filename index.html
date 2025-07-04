@@ -75,14 +75,15 @@
         <div class="content has-text-justified page-abstract-text">
             <p>
 Video virtual try-on (VVT) in the wild aims to realistically render garments on human subjects under highly challenging scenarios, including unconstrained subject or camera motion, dynamic environments, and diverse character styles. However, current approaches encounter three major limitations.
-First, these methods are heavily dependent on scarce paired clothing–video or garment–image datasets, which significantly limits their applicability to arbitrary garments and complex video inputs.
+First, these methods are heavily dependent on scarce paired clothing–video or garment–person datasets, which significantly limits their applicability to arbitrary garments and complex video inputs.
 Second, substantial spatial misalignment occurs when fitting entire garment images to spatiotemporally varying regions across video frames, which also conflicts with the spatiotemporal consistency priors of pretrained video models and thereby hinders effective model convergence.
 Third, the use of only front-view garment images can mislead the generation of video frames from markedly different viewpoints.
-To address these challenges, we propose <b>Try-On Master<b>, a stage-wise framework built upon Diffusion Transformers (DiTs) that systematically decomposes the VVT task into three consecutive stages.
+To address these challenges, we propose <b>Try-On Master</b>, a stage-wise framework built upon Diffusion Transformers (DiTs) that systematically decomposes the VVT task into three consecutive stages.
 In the first stage, a keyframe sampling strategy is employed to identify frames exhibiting pronounced motion or camera viewpoint variations, thereby providing diverse and informative cues for subsequent video generation.
 Building on this, the second stage utilizes a multi-frame try-on model, which additionally incorporates large-scale person-to-person data for training. This enables the accurate mapping of arbitrary garment types onto the selected keyframes while preserving both content consistency and garment details.
 Finally, the third stage introduces a multi-modal guided video editing model that leverages spatially aligned keyframe try-on images produced in the previous stage, together with motion features and textual descriptions, to synthesize temporally stable and visually coherent virtual try-on videos. This approach not only fully exploits the priors from pretrained video models but also eliminates the need for paired clothing–video data.
-Extensive experimental results demonstrate that Try-On Master outperforms existing methods on the video try-on task, particularly in maintaining high-fidelity garment details and temporal stability under real-world scenarios. Representative video samples are available on our project page: https://virtu-lab.github.io/.            </p>
+Extensive experimental results demonstrate that Try-On Master outperforms existing methods on the video try-on task, particularly in maintaining high-fidelity garment details and temporal stability under real-world scenarios. Representative video samples are available on our project page: https://virtu-lab.github.io/.
+            </p>
         </div>
     </div>
   </div>
