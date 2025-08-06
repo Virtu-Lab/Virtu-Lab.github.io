@@ -47,15 +47,18 @@
 
   <div id="root" class="column-flex">
     <div id="title-flex" class="column-flex">
-      <h1> Try-On Master: Mastering Realistic Video Virtual Try-On in the Wild via a Stage-wise Diffusion Transformer Framework </h1>
+      <h1> DreamVVT: Mastering Realistic Video Virtual Try-On in the Wild via a Stage-Wise Diffusion Transformer Framework </h1>
       <span>
         <a target="_blank" href="" onclick="return false;" >Tongchun&nbsp;Zuo</a><sup>1</sup><sup>*</sup>,
         <a target="_blank" href="" onclick="return false;" >Zaiyu&nbsp;Huang</a><sup>1</sup><sup>*</sup>,
         <a  href="https://ningshuliang.github.io/" >Shuliang&nbsp;Ning</a><sup>1</sup>,
         <a target="_blank" href="" onclick="return false;" >Ente&nbsp;Lin</a><sup>2</sup>,
         <a target="_blank" href="" onclick="return false;" >Chao&nbsp;Liang</a><sup>1</sup>
-        <a target="_blank" href="" onclick="return false;" >Xin&nbsp;Dong</a><sup>1</sup><sup>†</sup>,
+        <a target="_blank" href="" onclick="return false;" >Zerong&nbsp;Zheng</a><sup>1</sup>
+        <a target="_blank" href="" onclick="return false;" >Jianwen&nbsp;Jiang</a><sup>1</sup>
+        <a target="_blank" href="" onclick="return false;" >Yuan&nbsp;Zhang</a><sup>1</sup>,
         <a target="_blank" href="" onclick="return false;" >Mingyuan&nbsp;Gao</a><sup>1</sup><sup>†</sup>,
+        <a target="_blank" href="" onclick="return false;" >Xin&nbsp;Dong</a><sup>1</sup><sup>†</sup>,
         <br />
       </span>
       <span><sup>1</sup>Bytedance, <sup>2</sup>Shenzhen International Graduate School, Tsinghua University</span>
@@ -75,15 +78,11 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified page-abstract-text">
             <p>
-Despite the rapid advancement of video generation technologies, video virtual try-on (VVT) in unrestricted scenarios—such as challenging subject or camera motion, dynamic scenes, and diverse character styles—remains unexplored. Specifically, current approaches encounter three major limitations.
-First, these methods rely heavily on scarce paired garment-centric datasets, which significantly limits their applicability to arbitrary garments and complex video inputs.
-Second, substantial spatial misalignment arises when deforming entire garment images to spatiotemporally varying regions across video frames, which  hinders effective model convergence due to conflicts with the priors of pretrained video models. 
-Third, relying solely on front-view garment images can mislead the generation of video frames from markedly different viewpoints.
-To address these challenges, we propose <b>Try-On Master</b>, a stage-wise framework built upon Diffusion Transformers (DiTs) that systematically decomposes the VVT task into three consecutive stages.
-In the first stage, a keyframe sampling strategy is employed to identify frames exhibiting pronounced motion or viewpoint variations, thereby providing diverse and informative cues for subsequent video generation.
-Next, the second stage employs a multi-frame try-on model trained with large-scale person-to-person image data, enabling the precise mapping of arbitrary garment types onto the selected keyframes.
-Finally, the third stage introduces a multi-modal guided video editing model equipped with a visual adapter, which leverages spatially aligned keyframe try-on images generated in the previous stage, along with motion features and prompts, to synthesize visually coherent virtual try-on videos. This approach facilitates the full utilization of priors from pretrained video models and readily available unpaired human-centric videos.
-Extensive quantitative and qualitative experiments demonstrate that Try-On Master surpasses existing methods in preserving high-fidelity garment details and temporal stability in real-world scenarios. 
+Video virtual try-on (VVT) technology has garnered considerable academic interest owing to its promising applications in e-commerce advertising and entertainment. However, most existing end-to-end methods rely heavily on scarce paired garment-centric datasets and fail to effectively leverage priors of advanced visual models  and test-time inputs, making it challenging to accurately preserve fine-grained garment details and maintain temporal consistency in unconstrained scenarios.
+To address these challenges, we propose <b>DreamVVT</b>, a carefully designed two-stage framework built upon Diffusion Transformers (DiTs), which is inherently capable of leveraging diverse unpaired human-centric data to enhance adaptability in real-world scenarios.
+To further leverage prior knowledge from  pretrained models and  test-time inputs, in the first stage, we sample representative frames from the input video and utilize a multi-frame try-on model integrated with a vision-language model (VLM), to synthesize high-fidelity and semantically consistent keyframe try-on images. These images serve as complementary appearance guidance for subsequent video generation.
+In the second stage,  skeleton maps together with fine-grained motion and appearance descriptions are extracted from the input content, and these along with the keyframe try-on images are then fed into a pretrained video generation model enhanced with LoRA adapters. This ensures long-term temporal coherence for unseen regions and enables highly plausible dynamic motions.
+Extensive quantitative and qualitative experiments demonstrate that DreamVVT surpasses existing methods in preserving detailed garment content and temporal stability in real-world scenarios.
             </p>
         </div>
     </div>
